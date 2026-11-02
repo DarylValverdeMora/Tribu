@@ -9,12 +9,12 @@ import { IconoWhatsApp } from './Iconos'
 
 gsap.registerPlugin(useGSAP)
 
-type FotoHero = { src: string; alt: string; clase: string }
+type FotoHero = { src: string; alt: string; ancho: number; alto: number; clase: string }
 
-// Fotos de la sesión de Tribu (las mismas de sus historias), recortadas al vaso
+// Fotos de la sesión de Tribu (las mismas de sus historias), sin texto encima
 const FOTOS_HERO: readonly FotoHero[] = [
-  { src: './assets/good-morning-orange.webp', alt: 'Mano sosteniendo un jugo de naranja de Tribu', clase: 'right-0 top-0 rotate-6' },
-  { src: './assets/drink-vitamins.webp', alt: 'Batido amarillo de Tribu contra el cielo', clase: 'left-0 bottom-0 -rotate-5' },
+  { src: './assets/hero-morado.webp', alt: 'Batido morado de Tribu con moras, arándanos y fresas', ancho: 372, alto: 426, clase: 'right-0 top-0 rotate-6' },
+  { src: './assets/hero-naranja.webp', alt: 'Mano sosteniendo un jugo de naranja de Tribu', ancho: 383, alto: 402, clase: 'left-0 bottom-0 -rotate-5' },
 ]
 
 // Las cuatro franjas del logo, convertidas en la ola que baja hacia el menú
@@ -54,9 +54,9 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
               key={foto.src}
               src={foto.src}
               alt={foto.alt}
-              width={720}
-              height={1284}
-              className={`foto-hero absolute aspect-square w-[58%] rounded-[1.75rem] border-4 border-white object-cover object-bottom shadow-[0_18px_40px_rgb(0_0_0/0.22)] ${foto.clase}`}
+              width={foto.ancho}
+              height={foto.alto}
+              className={`foto-hero absolute aspect-square w-[58%] rounded-[1.75rem] border-4 border-white object-cover shadow-[0_18px_40px_rgb(0_0_0/0.22)] ${foto.clase}`}
             />
           ))}
           <img
@@ -67,7 +67,7 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
             className="logo-hero absolute right-[4%] bottom-[2%] z-10 w-[30%] drop-shadow-[0_6px_10px_rgb(0_0_0/0.2)]"
           />
           <Fruta tipo="fresa" className="fruta-hero absolute top-[2%] left-[6%] z-10 w-[16%] -rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
-          <Fruta tipo="limon" className="fruta-hero absolute top-[26%] left-[24%] z-10 w-[14%] rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
+          <Fruta tipo="limon" className="fruta-hero absolute top-[4%] left-[24%] md:top-[26%] z-10 w-[14%] rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
         </div>
 
         <div className="texto-hero flex flex-col items-center gap-5 text-center md:items-start md:text-left">
