@@ -73,7 +73,7 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
         <div className="texto-hero flex flex-col items-center gap-5 text-center md:items-start md:text-left">
           <EstadoAhora className="text-sm" />
           <h1 className="font-display text-[clamp(2.6rem,11vw,5.25rem)] leading-[0.95] text-tinta">
-            Batidos de fruta de verdad en Turrialba
+            Batidos de buenas vibras en Turrialba
           </h1>
           <p className="max-w-md text-lg leading-snug text-tinta/80 md:text-xl">
             En agua, en leche o con prote. Armá tu pedido aquí mismo y escogé si lo recogés en Plaza Rojitas o Plaza Nuri, o si te lo llevamos con Express.
