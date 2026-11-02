@@ -48,7 +48,7 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
   return (
     <section id="inicio" ref={contenedor} className="relative overflow-hidden bg-hielo pt-24 md:pt-28">
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-10 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-16">
-        <div className="relative order-first mx-auto aspect-[6/5] w-[min(88vw,28rem)] md:order-last md:aspect-[5/6] md:w-full md:max-w-md">
+        <div className="relative order-first mx-auto aspect-[10/8] w-[min(88vw,28rem)] md:order-last md:aspect-[1/1] md:w-full md:max-w-md">
           {FOTOS_HERO.map((foto) => (
             <img
               key={foto.src}
@@ -56,7 +56,7 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
               alt={foto.alt}
               width={720}
               height={1284}
-              className={`foto-hero absolute aspect-4/5 w-[58%] rounded-[1.75rem] border-4 border-white object-cover object-[50%_70%] shadow-[0_18px_40px_rgb(0_0_0/0.22)] ${foto.clase}`}
+              className={`foto-hero absolute aspect-square w-[58%] rounded-[1.75rem] border-4 border-white object-cover object-bottom shadow-[0_18px_40px_rgb(0_0_0/0.22)] ${foto.clase}`}
             />
           ))}
           <img
@@ -67,7 +67,7 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
             className="logo-hero absolute right-[4%] bottom-[2%] z-10 w-[30%] drop-shadow-[0_6px_10px_rgb(0_0_0/0.2)]"
           />
           <Fruta tipo="fresa" className="fruta-hero absolute top-[2%] left-[6%] z-10 w-[16%] -rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
-          <Fruta tipo="limon" className="fruta-hero absolute top-[44%] right-[-2%] z-10 w-[14%] rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
+          <Fruta tipo="limon" className="fruta-hero absolute top-[26%] left-[24%] z-10 w-[14%] rotate-12 drop-shadow-[0_8px_10px_rgb(0_0_0/0.18)]" />
         </div>
 
         <div className="texto-hero flex flex-col items-center gap-5 text-center md:items-start md:text-left">
