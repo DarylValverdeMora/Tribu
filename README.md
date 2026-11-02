@@ -33,7 +33,7 @@ Buscá `[PLACEHOLDER]` en el proyecto para ver lo que falta.
 4. **Promos**: La Promo de ₡1200 y el 15% de los jueves por apellido.
 5. **Express**: cómo pedir a domicilio.
 6. **Locales**: horario por día, estado abierto/cerrado, WhatsApp y mapa de cada local.
-7. **La tribu**: el ambiente del local, con espacios para fotos reales.
+7. **La tribu**: el ambiente, fotos del local, el equipo (Nacho, Vale y Tiffany) y clientes de la sesión de fotos.
 8. **Instagram**: carrusel con sus historias e invitación a seguir a @mitribu2.
 9. **Cierre**: CTA final y datos de contacto.
 
@@ -43,9 +43,9 @@ Buscá `[PLACEHOLDER]` en el proyecto para ver lo que falta.
 - Precio de los choco shakes.
 - Ingredientes de Tentación Morada (se dedujeron de la foto).
 - Zonas y costo del Express.
-- Fotos reales de los dos locales y del equipo.
+- Saber de cuál local es cada foto (terraza con sombrilla y fachada) para ponerlas también en "Locales".
 - Historia del nombre "Tribu" y slogan.
-- Permiso para usar las fotos de las historias (y de los papás si salen menores).
+- Permiso para usar las fotos de las historias, del equipo y de los clientes (y de los papás si sale algún menor).
 - Link de Facebook.
 - Si se compra dominio propio, cambiar la URL de `og:url`, `og:image` y `canonical` en `index.html`.
 
