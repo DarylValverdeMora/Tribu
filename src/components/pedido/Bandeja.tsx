@@ -28,12 +28,13 @@ export const Bandeja: FC = () => {
   const resumenTotal = estado.totalCompleto ? formatearColones(estado.total) : `${formatearColones(estado.total)} + por confirmar`
 
   return (
-    <div className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-lg">
+    // El contenedor deja pasar los toques: cerrado, el panel invisible no debe tapar el menú
+    <div className="pointer-events-none fixed inset-x-3 bottom-3 z-50 mx-auto max-w-lg">
       <div
         id={idPanel}
         className={cn(
           'mb-2 origin-bottom overflow-hidden rounded-3xl bg-white shadow-[0_12px_40px_rgb(0_0_0/0.25)] transition-[opacity,transform] duration-200 ease-(--ease-salpicada)',
-          abierta ? 'scale-100 opacity-100' : 'pointer-events-none invisible scale-95 opacity-0',
+          abierta ? 'pointer-events-auto scale-100 opacity-100' : 'invisible scale-95 opacity-0',
         )}
       >
         <div className="max-h-[38svh] overflow-y-auto p-4" data-lenis-prevent>
@@ -154,7 +155,7 @@ export const Bandeja: FC = () => {
         onClick={() => setAbierta((valor) => !valor)}
         aria-expanded={abierta}
         aria-controls={idPanel}
-        className="flex min-h-14 w-full items-center justify-between gap-3 rounded-full bg-tinta py-2 pr-2 pl-5 text-white shadow-[0_10px_30px_rgb(0_0_0/0.3)] active:scale-[0.98]"
+        className="pointer-events-auto flex min-h-14 w-full items-center justify-between gap-3 rounded-full bg-tinta py-2 pr-2 pl-5 text-white shadow-[0_10px_30px_rgb(0_0_0/0.3)] active:scale-[0.98]"
       >
         <span className="font-semibold">
           {estado.unidades} {estado.unidades === 1 ? 'producto' : 'productos'} · <span className="tabular-nums">{resumenTotal}</span>

@@ -2,7 +2,7 @@ import { useState, type FC } from 'react'
 import { formatearColones, MENU, type Categoria, type Preparacion, type Producto, type Tamano } from '../data/menu'
 import { PLACEHOLDER } from '../data/negocio'
 import { cn } from '../lib/cn'
-import { IconoMas } from './Iconos'
+import { IconoMas, IconoMenos } from './Iconos'
 import { usePedido } from './pedido/PedidoContext'
 
 const FONDO_CATEGORIA: Record<Categoria['color'], string> = {
@@ -58,28 +58,32 @@ type FilaProductoProps = {
   precio: string
   cantidad: number
   alAgregar: () => void
+  alQuitar: () => void
 }
 
-const FilaProducto: FC<FilaProductoProps> = ({ producto, precio, cantidad, alAgregar }) => (
+const CLASE_BOTON_CANTIDAD = 'grid size-11 place-items-center rounded-full transition-transform duration-150 ease-out active:scale-90'
+
+const FilaProducto: FC<FilaProductoProps> = ({ producto, precio, cantidad, alAgregar, alQuitar }) => (
   <li className="flex items-center justify-between gap-3 py-3">
     <div className="min-w-0">
       <p className="text-lg leading-tight font-semibold">{producto.nombre}</p>
       {producto.detalle ? <p className="leading-snug text-tinta/70">{producto.detalle}</p> : null}
+      <p className="font-display tabular-nums md:hidden">{precio}</p>
     </div>
-    <div className="flex shrink-0 items-center gap-3">
-      <span className="font-display tabular-nums">{precio}</span>
-      <button
-        type="button"
-        onClick={alAgregar}
-        aria-label={`Agregar ${producto.nombre} al pedido`}
-        className="relative grid size-11 place-items-center rounded-full bg-tinta text-white transition-transform duration-150 ease-out active:scale-90"
-      >
-        <IconoMas className="size-5" />
-        {cantidad > 0 ? (
-          <span className="absolute -top-1 -right-1 grid size-5 place-items-center rounded-full bg-amarillo text-xs font-bold text-tinta tabular-nums">
+    <div className="flex shrink-0 items-center gap-2">
+      <span className="hidden font-display tabular-nums md:inline">{precio}</span>
+      {cantidad > 0 ? (
+        <>
+          <button type="button" onClick={alQuitar} aria-label={`Quitar uno: ${producto.nombre}`} className={cn(CLASE_BOTON_CANTIDAD, 'bg-nube text-tinta')}>
+            <IconoMenos className="size-5" />
+          </button>
+          <span className="w-5 text-center font-display text-lg tabular-nums" aria-live="polite">
             {cantidad}
           </span>
-        ) : null}
+        </>
+      ) : null}
+      <button type="button" onClick={alAgregar} aria-label={`Agregar ${producto.nombre} al pedido`} className={cn(CLASE_BOTON_CANTIDAD, 'bg-tinta text-white')}>
+        <IconoMas className="size-5" />
       </button>
     </div>
   </li>
@@ -124,6 +128,7 @@ const PanelCategoria: FC<{ categoria: Categoria }> = ({ categoria }) => {
             producto={producto}
             precio={precioVisible(tamano)}
             cantidad={cantidadDe(producto)}
+            alQuitar={() => acciones.quitar(claveDe(producto))}
             alAgregar={() =>
               acciones.agregar({
                 clave: claveDe(producto),
