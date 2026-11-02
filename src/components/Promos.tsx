@@ -62,7 +62,7 @@ const TarjetaJueves: FC = () => {
 }
 
 export const Promos: FC = () => (
-  <section aria-labelledby="titulo-promos" className="bg-hielo px-4 pb-20 md:pb-28">
+  <section aria-labelledby="titulo-promos" className="bg-hielo px-4 py-20 md:py-24">
     <div className="mx-auto max-w-5xl">
       <h2 id="titulo-promos" className="font-display text-[clamp(2.25rem,9vw,4rem)] leading-none">
         Para ahorrarse unos cincos
