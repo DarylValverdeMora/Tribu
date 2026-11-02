@@ -27,8 +27,8 @@ export const App: FC = () => {
       <Header />
       <main>
         <Hero movimientoReducido={movimientoReducido} />
-        <Favoritos movimientoReducido={movimientoReducido} />
         <Menu />
+        <Favoritos movimientoReducido={movimientoReducido} />
         <Promos />
         <Express />
         <Locales />

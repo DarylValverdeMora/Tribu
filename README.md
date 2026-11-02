@@ -27,9 +27,9 @@ Buscá `[PLACEHOLDER]` en el proyecto para ver lo que falta.
 
 ## Secciones
 
-1. **Hero**: logo con fruta, estado "abierto ahorita" según la hora de Costa Rica y botones a WhatsApp y al menú.
-2. **Favoritos**: un póster por sabor, como las historias de Instagram. Al bajar, el vaso se llena, se endereza y la fruta se mueve a distintas velocidades, sin detener el scroll. Cada sabor tiene su botón de pedido. Con "reducir movimiento" activado se muestran las historias reales en una cuadrícula.
-3. **Menú**: pestañas por categoría, tamaño y preparación con precio. El + arma un pedido; se escoge retiro en el local o Express (con dirección) y se manda por WhatsApp al local que se escoja.
+1. **Hero**: logo con fruta, estado "abierto ahorita" según la hora de Costa Rica, botón "Hacer mi pedido" (lleva al menú) y botón de WhatsApp.
+2. **Menú**: pestañas por categoría, tamaño y preparación con precio. El + arma un pedido; se escoge retiro en el local o Express (con dirección) y se manda por WhatsApp al local que se escoja.
+3. **Favoritos**: un póster por sabor, como las historias de Instagram. Al bajar, el vaso se llena, se endereza y la fruta se mueve a distintas velocidades, sin detener el scroll. Cada sabor tiene su botón de pedido. Con "reducir movimiento" activado se muestran las historias reales en una cuadrícula.
 4. **Promos**: La Promo de ₡1200 y el 15% de los jueves por apellido.
 5. **Express**: cómo pedir a domicilio.
 6. **Locales**: horario por día, estado abierto/cerrado, WhatsApp y mapa de cada local.

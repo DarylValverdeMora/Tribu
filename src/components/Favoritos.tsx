@@ -104,8 +104,8 @@ const PosterDeSabor: FC<PosterProps> = ({ favorito, indice }) => {
       ref={poster}
       aria-labelledby={`sabor-${favorito.id}`}
       className={cn(
-        'gotas relative isolate overflow-hidden px-4 pt-16 pb-20 [--vaso:min(62vw,19rem)] md:px-8 md:py-24 md:[--vaso:min(28vw,22rem)]',
-        indice > 0 && '-mt-10 rounded-t-[2.5rem] md:-mt-14 md:rounded-t-[3.5rem]',
+        'gotas relative isolate overflow-hidden rounded-t-[2.5rem] px-4 pt-14 pb-16 [--vaso:min(56vw,17rem)] md:rounded-t-[3.5rem] md:px-8 md:py-20 md:[--vaso:min(26vw,20rem)]',
+        indice > 0 && '-mt-10 md:-mt-14',
       )}
       style={{ background: favorito.fondo, ...estiloTinta(favorito) }}
     >

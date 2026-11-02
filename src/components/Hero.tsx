@@ -21,14 +21,14 @@ const FRUTAS_DEL_LOGO: readonly FrutaDelLogo[] = [
   { tipo: 'hierbabuena', clase: 'right-[26%] -top-[6%] w-[16%] rotate-12' },
 ]
 
-// Las cuatro franjas del logo, convertidas en la ola que baja hacia los favoritos
+// Las cuatro franjas del logo, convertidas en la ola que baja hacia el menú
 const OlaDelLogo: FC = () => (
   <svg viewBox="0 0 1440 220" preserveAspectRatio="none" className="block h-24 w-full md:h-40" aria-hidden="true" focusable="false">
     <path d="M0 40C240 110 520 130 760 90S1220 0 1440 50V220H0Z" fill="var(--tribu-rojo)" />
     <path d="M0 80C260 140 540 150 780 116S1230 40 1440 84V220H0Z" fill="var(--tribu-naranja)" />
     <path d="M0 116C280 170 560 176 800 146S1240 80 1440 118V220H0Z" fill="var(--tribu-amarillo)" />
     <path d="M0 152C300 196 580 200 820 176S1250 120 1440 152V220H0Z" fill="var(--tribu-lima)" />
-    <path d="M0 190C320 214 600 218 840 204S1260 170 1440 188V220H0Z" fill="var(--sabor-morada)" />
+    <path d="M0 190C320 214 600 218 840 204S1260 170 1440 188V220H0Z" fill="var(--tribu-hielo)" />
   </svg>
 )
 
@@ -70,15 +70,15 @@ export const Hero: FC<HeroProps> = ({ movimientoReducido }) => {
             Batidos de fruta de verdad en Turrialba
           </h1>
           <p className="max-w-md text-lg leading-snug text-tinta/80 md:text-xl">
-            En agua, en leche o con prote. Pasá por Plaza Rojitas o Plaza Nuri, o pedilo por WhatsApp y te lo llevamos con Express.
+            En agua, en leche o con prote. Armá tu pedido aquí mismo y escogé si lo recogés en Plaza Rojitas o Plaza Nuri, o si te lo llevamos con Express.
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+            <EnlaceBoton href="#menu" intencion="tinta">
+              Hacer mi pedido
+            </EnlaceBoton>
             <EnlaceBoton href={linkWhatsApp()} externo intencion="whatsapp">
               <IconoWhatsApp className="size-6" />
-              Pedir por WhatsApp
-            </EnlaceBoton>
-            <EnlaceBoton href="#menu" intencion="contorno">
-              Ver el menú
+              WhatsApp
             </EnlaceBoton>
           </div>
         </div>

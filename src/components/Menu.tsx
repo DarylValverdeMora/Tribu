@@ -144,7 +144,7 @@ export const Menu: FC = () => {
   if (!activa) return null
 
   return (
-    <section id="menu" aria-labelledby="titulo-menu" className="scroll-mt-20 bg-hielo px-4 py-20 md:py-28">
+    <section id="menu" aria-labelledby="titulo-menu" className="scroll-mt-20 bg-hielo px-4 pt-10 pb-24 md:pt-14 md:pb-32">
       <div className="mx-auto max-w-5xl">
         <h2 id="titulo-menu" className="font-display text-[clamp(2.5rem,10vw,4.5rem)] leading-none">
           El menú
