@@ -6,7 +6,7 @@ import { IconoMoto, IconoWhatsApp } from './Iconos'
 
 const PASOS = [
   { titulo: 'Armá el pedido', texto: 'En el menú de arriba o escribiendo directo lo que querés.' },
-  { titulo: 'Mandalo por WhatsApp', texto: 'Escogé Plaza Rojitas o Plaza Nuri y poné tu dirección en el mensaje.' },
+  { titulo: 'Escogé Express', texto: 'En el pedido marcá Express, escribí tu dirección y mandalo a Plaza Rojitas o Plaza Nuri.' },
   { titulo: 'Te lo llevamos', texto: 'Lo llevamos a la dirección que pusiste en el mensaje.' },
 ] as const
 
