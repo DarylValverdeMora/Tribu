@@ -9,7 +9,6 @@ import { cn } from '../lib/cn'
 import { linkWhatsApp, mensajeDeSabor } from '../lib/whatsapp'
 import { Fruta } from './Fruta'
 import { IconoWhatsApp } from './Iconos'
-import { Vaso } from './Vaso'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -61,6 +60,16 @@ const AccionDeSabor: FC<{ favorito: Favorito }> = ({ favorito }) => (
   </div>
 )
 
+const Ingredientes: FC<{ favorito: Favorito; className?: string }> = ({ favorito, className }) => (
+  <ul className={cn('flex flex-wrap justify-center gap-2 md:justify-start', className)} aria-label={`Ingredientes de ${favorito.nombre}`}>
+    {favorito.ingredientes.map((ingrediente) => (
+      <li key={ingrediente} className="ingrediente rounded-full bg-white/90 px-4 py-1.5 font-display text-base" style={{ color: favorito.tinta }}>
+        {ingrediente}
+      </li>
+    ))}
+  </ul>
+)
+
 type PosterProps = { favorito: Favorito; indice: number }
 
 const PosterDeSabor: FC<PosterProps> = ({ favorito, indice }) => {
@@ -73,18 +82,16 @@ const PosterDeSabor: FC<PosterProps> = ({ favorito, indice }) => {
       if (!nodo) return
       const entrada = { trigger: nodo, start: 'top 85%', end: 'top 15%', scrub: 0.8 }
 
-      gsap.fromTo('.liquido', { y: 250 }, { y: 0, ease: 'power1.out', scrollTrigger: entrada })
-      gsap.fromTo('.vaso', { rotation: alDerecha ? 10 : -10, yPercent: 12 }, { rotation: 0, yPercent: 0, ease: 'power2.out', scrollTrigger: entrada })
+      gsap.fromTo('.foto-sabor', { rotation: alDerecha ? 9 : -9, yPercent: 14, scale: 0.92 }, { rotation: alDerecha ? -2 : 2, yPercent: 0, scale: 1, ease: 'power2.out', scrollTrigger: entrada })
       gsap.fromTo('.linea-arriba', { xPercent: alDerecha ? 30 : -30, autoAlpha: 0 }, { xPercent: 0, autoAlpha: 1, ease: 'power2.out', scrollTrigger: { ...entrada, end: 'top 40%' } })
       gsap.fromTo('.linea-grande', { xPercent: alDerecha ? -24 : 24, autoAlpha: 0 }, { xPercent: 0, autoAlpha: 1, ease: 'power2.out', scrollTrigger: { ...entrada, end: 'top 35%' } })
-
       gsap.from('.ingrediente', {
-        x: -30,
+        y: 16,
         autoAlpha: 0,
-        stagger: 0.08,
-        duration: 0.45,
+        stagger: 0.07,
+        duration: 0.4,
         ease: 'back.out(1.6)',
-        scrollTrigger: { trigger: nodo, start: 'top 45%', end: 'bottom top', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: nodo, start: 'top 55%', end: 'bottom top', toggleActions: 'play none none reverse' },
       })
 
       gsap.utils.toArray<HTMLElement>('.fruta', nodo).forEach((fruta, posicion) => {
@@ -104,7 +111,7 @@ const PosterDeSabor: FC<PosterProps> = ({ favorito, indice }) => {
       ref={poster}
       aria-labelledby={`sabor-${favorito.id}`}
       className={cn(
-        'gotas relative isolate overflow-hidden rounded-t-[2.5rem] px-4 pt-14 pb-16 [--vaso:min(56vw,17rem)] md:rounded-t-[3.5rem] md:px-8 md:py-20 md:[--vaso:min(26vw,20rem)]',
+        'gotas relative isolate overflow-hidden rounded-t-[2.5rem] px-4 pt-14 pb-16 [--vaso:min(74vw,20rem)] md:rounded-t-[3.5rem] md:px-8 md:py-20 md:[--vaso:min(30vw,22rem)]',
         indice > 0 && '-mt-10 md:-mt-14',
       )}
       style={{ background: favorito.fondo, ...estiloTinta(favorito) }}
@@ -119,31 +126,32 @@ const PosterDeSabor: FC<PosterProps> = ({ favorito, indice }) => {
 
       <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-12">
         <div className={cn('flex flex-col items-center gap-6 text-center md:items-start md:text-left', alDerecha && 'md:order-last')}>
-          <h3 id={`sabor-${favorito.id}`} className="w-full [container-type:inline-size]">
+          <h3 id={`sabor-${favorito.id}`} className="sr-only md:not-sr-only md:w-full md:[container-type:inline-size]">
             <span className="linea-arriba titulo-poster block text-[clamp(1.75rem,8vw,3.5rem)]">{favorito.lineaArriba}</span>
             <span className="linea-grande titulo-poster block uppercase" style={{ fontSize: tamanoTituloGrande(favorito.lineaGrande) }}>
               {favorito.lineaGrande}
             </span>
           </h3>
+          <Ingredientes favorito={favorito} className="hidden md:flex" />
           <div className="hidden md:block">
             <AccionDeSabor favorito={favorito} />
           </div>
         </div>
 
         <div className="relative mx-auto w-(--vaso)">
-          <div className="vaso relative">
-            <Vaso favoritos={[favorito]} className="w-full drop-shadow-[0_24px_30px_rgb(0_0_0/0.25)]" />
-            <ul className="absolute inset-x-0 top-[38%] flex flex-col items-center gap-1" aria-label={`Ingredientes de ${favorito.nombre}`}>
-              {favorito.ingredientes.map((ingrediente) => (
-                <li key={ingrediente} className="ingrediente titulo-poster text-[calc(var(--vaso)*0.135)] uppercase">
-                  {ingrediente}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <img
+            src={favorito.imagen}
+            alt={`Historia de Tribu: ${favorito.nombre}, con ${favorito.ingredientes.join(', ').toLowerCase()}`}
+            width={720}
+            height={1284}
+            loading="lazy"
+            decoding="async"
+            className="foto-sabor aspect-9/16 w-full rounded-[2rem] border-4 border-white object-cover shadow-[0_24px_50px_rgb(0_0_0/0.28)]"
+          />
         </div>
 
-        <div className="md:hidden">
+        <div className="flex flex-col items-center gap-4 md:hidden">
+          <Ingredientes favorito={favorito} />
           <AccionDeSabor favorito={favorito} />
         </div>
       </div>
