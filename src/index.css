@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+/* Paleta sacada del logo y de las historias de Tribu. Cambiar aquí cambia toda la página. */
+:root {
+  --tribu-rojo: #e62129;
+  --tribu-naranja: #ee7a22;
+  --tribu-amarillo: #f6c416;
+  --tribu-lima: #b7d65c;
+  --tribu-hoja: #6f9a2c;
+  --tribu-tinta: #141414;
+  --tribu-hielo: #ffffff;
+  --tribu-nube: #f3f7ee;
+  --tribu-whatsapp: #1fae5b;
+
+  /* Fondos por sabor, como en las historias */
+  --sabor-morada: #b48be6;
+  --sabor-promo: #f8d21c;
+  --sabor-sandia: #9fcdf0;
+  --sabor-mango: #f6a93b;
+  --sabor-cafe: #b8763d;
+}
+
+@theme {
+  --font-display: 'Titan One', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --font-sans: 'Baloo 2', system-ui, sans-serif;
+
+  --color-rojo: var(--tribu-rojo);
+  --color-naranja: var(--tribu-naranja);
+  --color-amarillo: var(--tribu-amarillo);
+  --color-lima: var(--tribu-lima);
+  --color-hoja: var(--tribu-hoja);
+  --color-tinta: var(--tribu-tinta);
+  --color-hielo: var(--tribu-hielo);
+  --color-nube: var(--tribu-nube);
+  --color-whatsapp: var(--tribu-whatsapp);
+
+  --color-morada: var(--sabor-morada);
+  --color-promo: var(--sabor-promo);
+  --color-sandia: var(--sabor-sandia);
+  --color-mango: var(--sabor-mango);
+  --color-cafe: var(--sabor-cafe);
+
+  --radius-vaso: 2.5rem;
+  --ease-salpicada: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-hielo font-sans text-tinta antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--tribu-tinta);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  ::selection {
+    background: var(--tribu-amarillo);
+  }
+}
+
+/* Gotas de condensación, el fondo de todas las historias de Tribu */
+.gotas {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgb(255 255 255 / 0.55) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 70% 60%, rgb(255 255 255 / 0.4) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 40% 80%, rgb(255 255 255 / 0.35) 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 15%, rgb(255 255 255 / 0.45) 0 3px, transparent 4px);
+  background-size:
+    37px 41px,
+    53px 47px,
+    29px 31px,
+    71px 67px;
+}
+
+/* Letra de póster: blanca con sombra dura del color del sabor */
+.titulo-poster {
+  font-family: var(--font-display);
+  color: var(--tribu-hielo);
+  line-height: 0.88;
+  text-shadow:
+    0 0.05em 0 var(--tinta-sabor, rgb(0 0 0 / 0.35)),
+    0 0.09em 0.12em rgb(0 0 0 / 0.12);
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
