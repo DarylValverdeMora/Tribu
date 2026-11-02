@@ -1,5 +1,7 @@
 # Tribu Batidos · landing
 
+En vivo: https://tribu-pi.vercel.app
+
 Prototipo de frontend para Tribu, batidos naturales en Turrialba (Plaza Rojitas y Plaza Nuri). Sin backend: los pedidos salen por WhatsApp con el mensaje ya armado.
 
 ## Correrlo
@@ -45,7 +47,7 @@ Buscá `[PLACEHOLDER]` en el proyecto para ver lo que falta.
 - Historia del nombre "Tribu" y slogan.
 - Permiso para usar las fotos de las historias (y de los papás si salen menores).
 - Link de Facebook.
-- `og:image` necesita la URL absoluta cuando haya dominio.
+- Si se compra dominio propio, cambiar la URL de `og:url`, `og:image` y `canonical` en `index.html`.
 
 ## Stack
 

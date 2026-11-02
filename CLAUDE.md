@@ -10,7 +10,7 @@
 - **A quién le habla la página:** A los clientes del local
 - **Objetivo principal (CTA):**  Contactar por whatsapp, mostrar local y batidos.
 - **Repo:** https://github.com/DarylValverdeMora/Tribu.git
-- **Vista previa (Vercel):*
+- **Vista previa (Vercel):** https://tribu-pi.vercel.app
 - **Estado:** prototipo frontend 
 
 ## 2. Marca
