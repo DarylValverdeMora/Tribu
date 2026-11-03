@@ -38,7 +38,7 @@ export const LOCALES: readonly Local[] = [
     nombre: 'Plaza Rojitas',
     zona: 'Turrialba, Cartago',
     whatsapp: '50688544807',
-    mapa: 'https://maps.app.goo.gl/nSs9sTT1gHc96vai7',
+    mapa: 'https://maps.app.goo.gl/CdXzSFFSRT2QdSFTA',
     busquedaMapa: 'Tribu Batidos, Plaza Rojitas, Turrialba, Cartago',
     horario: {
       0: null,
@@ -55,7 +55,7 @@ export const LOCALES: readonly Local[] = [
     nombre: 'Plaza Nuri',
     zona: 'Turrialba, Cartago',
     whatsapp: '50689385342',
-    mapa: 'https://maps.app.goo.gl/VLGxDvi3mrEHKmqN7',
+    mapa: 'https://maps.app.goo.gl/kfXFmfsVeyvVh1NK6',
     busquedaMapa: 'Tribu Batidos, Plaza Nuri, Turrialba, Cartago',
     horario: {
       0: NURI_DOMINGO,
