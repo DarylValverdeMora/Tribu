@@ -14,11 +14,11 @@ const textoEstado = (estado: EstadoLocal): string => {
   return `Cerrado, abre ${estado.proximaApertura.dia} a las ${estado.proximaApertura.hora}`
 }
 
-const urlMapaEmbebido = (busqueda: string): string => `https://www.google.com/maps?q=${encodeURIComponent(busqueda)}&z=17&output=embed`
+const urlMapaEmbebido = (coordenadas: string): string => `https://www.google.com/maps?q=${encodeURIComponent(coordenadas)}&z=17&output=embed`
 
-const MapaLocal: FC<{ local: Local }> = ({ local }) => (
+const MapaLocal: FC<{ local: Local; coordenadas: string }> = ({ local, coordenadas }) => (
   <iframe
-    src={urlMapaEmbebido(local.busquedaMapa)}
+    src={urlMapaEmbebido(coordenadas)}
     title={`Mapa de Tribu en ${local.nombre}`}
     loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
@@ -53,7 +53,7 @@ const TarjetaLocal: FC<{ local: Local; colorTarjeta: string }> = ({ local, color
         </tbody>
       </table>
 
-      <MapaLocal local={local} />
+      {local.coordenadas ? <MapaLocal local={local} coordenadas={local.coordenadas} /> : null}
 
       <div className="mt-6 flex flex-wrap gap-3">
         <EnlaceBoton href={linkWhatsApp(`¡Hola Tribu ${local.nombre}! Quiero hacer un pedido.`, local.whatsapp)} externo intencion="whatsapp" className="text-base">
