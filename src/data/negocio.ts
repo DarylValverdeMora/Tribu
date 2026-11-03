@@ -39,7 +39,7 @@ export const LOCALES: readonly Local[] = [
     zona: 'Turrialba, Cartago',
     whatsapp: '50688544807',
     mapa: 'https://maps.app.goo.gl/CdXzSFFSRT2QdSFTA',
-    coordenadas: null, // [PLACEHOLDER] coordenadas del local
+    coordenadas: '9.905624361468991,-83.68518543247713'
     horario: {
       0: null,
       1: ROJITAS_ABIERTO,
@@ -56,7 +56,7 @@ export const LOCALES: readonly Local[] = [
     zona: 'Turrialba, Cartago',
     whatsapp: '50689385342',
     mapa: 'https://maps.app.goo.gl/kfXFmfsVeyvVh1NK6',
-    coordenadas: null, // [PLACEHOLDER] coordenadas del local
+    coordenadas: '9.901627655999686,-83.6763659270612'
     horario: {
       0: NURI_DOMINGO,
       1: NURI_SEMANA,
