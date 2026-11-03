@@ -14,6 +14,18 @@ const textoEstado = (estado: EstadoLocal): string => {
   return `Cerrado, abre ${estado.proximaApertura.dia} a las ${estado.proximaApertura.hora}`
 }
 
+const urlMapaEmbebido = (busqueda: string): string => `https://www.google.com/maps?q=${encodeURIComponent(busqueda)}&z=17&output=embed`
+
+const MapaLocal: FC<{ local: Local }> = ({ local }) => (
+  <iframe
+    src={urlMapaEmbebido(local.busquedaMapa)}
+    title={`Mapa de Tribu en ${local.nombre}`}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="mt-6 aspect-[4/3] w-full rounded-2xl border-2 border-tinta bg-white md:aspect-video"
+  />
+)
+
 const TarjetaLocal: FC<{ local: Local; colorTarjeta: string }> = ({ local, colorTarjeta }) => {
   const estado = estadoDelLocal(local)
   const hoy = diaDeHoy()
@@ -40,6 +52,8 @@ const TarjetaLocal: FC<{ local: Local; colorTarjeta: string }> = ({ local, color
           ))}
         </tbody>
       </table>
+
+      <MapaLocal local={local} />
 
       <div className="mt-6 flex flex-wrap gap-3">
         <EnlaceBoton href={linkWhatsApp(`¡Hola Tribu ${local.nombre}! Quiero hacer un pedido.`, local.whatsapp)} externo intencion="whatsapp" className="text-base">

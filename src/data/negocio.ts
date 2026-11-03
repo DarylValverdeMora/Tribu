@@ -11,6 +11,8 @@ export type Local = {
   zona: string
   whatsapp: string
   mapa: string
+  // Lo que se busca en el mapa embebido. Si el pin no cae en el local, cambiá esto por la dirección o coordenadas.
+  busquedaMapa: string
   horario: Record<DiaSemana, Franja | null>
 }
 
@@ -37,6 +39,7 @@ export const LOCALES: readonly Local[] = [
     zona: 'Turrialba, Cartago',
     whatsapp: '50688544807',
     mapa: 'https://maps.app.goo.gl/nSs9sTT1gHc96vai7',
+    busquedaMapa: 'Tribu Batidos, Plaza Rojitas, Turrialba, Cartago',
     horario: {
       0: null,
       1: ROJITAS_ABIERTO,
@@ -53,6 +56,7 @@ export const LOCALES: readonly Local[] = [
     zona: 'Turrialba, Cartago',
     whatsapp: '50689385342',
     mapa: 'https://maps.app.goo.gl/VLGxDvi3mrEHKmqN7',
+    busquedaMapa: 'Tribu Batidos, Plaza Nuri, Turrialba, Cartago',
     horario: {
       0: NURI_DOMINGO,
       1: NURI_SEMANA,
